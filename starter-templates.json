@@ -1,0 +1,22 @@
+[
+    {
+        "name": "ts-node-starter",
+        "value": "ts-node",
+        "path": ""
+    },
+    {
+        "name": "koa-starter",
+        "value": "koa",
+        "path": ""
+    },
+    {
+        "name": "vite-vue3-unocss-starter",
+        "value": "vite-vue3-unocss",
+        "path": ""
+    },
+    {
+        "name": "nuxt3-starter",
+        "value": "nuxt3",
+        "path": ""
+    }
+]
