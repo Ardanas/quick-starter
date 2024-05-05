@@ -1,5 +1,7 @@
 
 
+## [0.1.1](https://github.com/Ardanas/helper-cli/compare/0.1.0...0.1.1) (2024-05-05)
+
 ## 0.1.0 (2024-05-05)
 
 
