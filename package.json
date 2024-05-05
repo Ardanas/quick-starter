@@ -1,15 +1,19 @@
 {
-	"name": "helper-cli",
+	"name": "my-helper-cli",
 	"version": "0.0.1",
 	"author": "ardans",
 	"type": "module",
 	"bin": {
-		"helper-cli": "dist/index.cjs"
+		"my-helper-cli": "dist/index.cjs"
 	},
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"dev": "tsup --watch --sourcemap",
 		"build": "tsup",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"release": "release-it"
 	},
 	"dependencies": {
 		"cac": "^6.7.14",
@@ -22,10 +26,12 @@
 		"ora": "^5.4.1"
 	},
 	"devDependencies": {
+		"@release-it/conventional-changelog": "^8.0.1",
 		"@types/degit": "^2.8.6",
 		"@types/fs-extra": "^11.0.4",
 		"@types/inquirer": "^9.0.7",
 		"@types/node": "^20.12.8",
+		"release-it": "^17.2.1",
 		"tsup": "^8.0.2",
 		"typescript": "^5.4.5"
 	}
