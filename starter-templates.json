@@ -1,22 +1,18 @@
 [
     {
         "name": "ts-node-starter",
-        "value": "ts-node",
-        "path": ""
+        "value": "github:antfu/starter-ts"
     },
     {
         "name": "koa-starter",
-        "value": "koa",
-        "path": ""
+        "value": "github:ddimaria/koa-typescript-starter"
     },
     {
         "name": "vite-vue3-unocss-starter",
-        "value": "vite-vue3-unocss",
-        "path": ""
+        "value": "github:Ardanas/starter-vite"
     },
     {
         "name": "nuxt3-starter",
-        "value": "nuxt3",
-        "path": ""
+        "value": "github:viandwi24/nuxt3-awesome-starter"
     }
 ]
