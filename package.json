@@ -1,6 +1,6 @@
 {
 	"name": "my-helper-cli",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"author": "ardans",
 	"type": "module",
 	"bin": {
