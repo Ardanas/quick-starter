@@ -2,6 +2,7 @@
 import { resolve } from 'path';
 import cac from 'cac';
 import { selectStarterTemplate, download } from './commands/template/index.ts';
+import { version}  from '../../package.json'
 
 const cli = cac('helper-cli')
 
@@ -17,7 +18,7 @@ cli.command('template', 'Create a new project from a template')
         await download(_repo, _dir, options.force)
     })
 
-cli.version('0.0.1')
+cli.version(version)
 cli.help()
 
 cli.parse()
