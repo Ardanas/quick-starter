@@ -1,5 +1,18 @@
 
 
+## [0.1.2](https://github.com/Ardanas/helper-cli/compare/0.1.0...0.1.2) (2024-05-06)
+
+
+### ✨ Features | 新功能
+
+* add test ([c3746e4](https://github.com/Ardanas/helper-cli/commit/c3746e4bd9388157d82a888b13521fff5871ff99))
+
+
+### 🎫 Chores | 其他更新
+
+* add eslint ([1f49339](https://github.com/Ardanas/helper-cli/commit/1f4933932cc0fd2c89c518e2bff44f8c429abfc2))
+* Release v0.1.1 ([84db458](https://github.com/Ardanas/helper-cli/commit/84db458427e86973b74032d440952124f7aa8c55))
+
 ## [0.1.1](https://github.com/Ardanas/helper-cli/compare/0.1.0...0.1.1) (2024-05-05)
 
 ## 0.1.0 (2024-05-05)
