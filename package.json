@@ -25,11 +25,13 @@
 		"ora": "^5.4.1"
 	},
 	"devDependencies": {
+		"@antfu/eslint-config": "^2.16.1",
 		"@release-it/conventional-changelog": "^8.0.1",
 		"@types/degit": "^2.8.6",
 		"@types/fs-extra": "^11.0.4",
 		"@types/inquirer": "^9.0.7",
 		"@types/node": "^20.12.8",
+		"eslint": "^9.2.0",
 		"release-it": "^17.2.1",
 		"tsup": "^8.0.2",
 		"typescript": "^5.4.5"
