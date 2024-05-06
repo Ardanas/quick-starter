@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
 import chalk from 'chalk';
-import starterTemplates from '../../../../starter-templates.json';
+import starterTemplates from '../../../starter-templates.json';
 
 
 

@@ -2,10 +2,9 @@
 import { resolve } from 'path';
 import cac from 'cac';
 import { selectStarterTemplate, download } from './commands/template/index.ts';
-import { name, version }  from '../../package.json'
+import { name, version }  from '../package.json'
 
 const cli = cac(name)
-
 
 cli.command('template', 'Create a new project from a template')
     .option('--type <type>', 'Template type')

@@ -3,8 +3,10 @@
 	"version": "0.1.1",
 	"author": "ardans",
 	"type": "module",
+	"main": "dist/cli.js",
+	"module": "dist/cli.js",
 	"bin": {
-		"my-helper-cli": "dist/index.cjs"
+		"my-helper-cli": "bin/my-helper-cli.mjs"
 	},
 	"scripts": {
 		"dev": "tsup --watch --sourcemap",

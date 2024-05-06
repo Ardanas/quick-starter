@@ -1,7 +1,7 @@
 import ora from 'ora';
 import { downloadTemplate } from 'giget';
 import { isOverwriteDir } from './prompts';
-import { isDirEmpty, ensureDir, emptyDir } from '../../../utils';
+import { isDirEmpty, ensureDir, emptyDir } from '../../utils';
 
 export async function download(repo: string, dir: string, isForce: boolean = false) {
     let _isOverwrite = isForce
