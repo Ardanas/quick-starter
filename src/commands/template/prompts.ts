@@ -26,7 +26,7 @@ export async function isOverwriteDir(dir: string) {
     {
       type: 'confirm',
       name: 'overwrite',
-      message: `文件夹 ${dir} 不为空, 是否需要覆盖?`,
+      message: `the folder is not empty, do you need to overwrite it？ [${dir}]`,
       default: false,
     },
   ])
