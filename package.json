@@ -1,25 +1,35 @@
 {
 	"name": "my-helper-cli",
-	"version": "0.1.2",
-	"author": "ardans",
 	"type": "module",
+	"version": "0.1.2",
+	"description": "A modern CLI tool that downloads any template.",
+	"license": "MIT",
+	"homepage": "https://github.com/Ardanas/helper-cli#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Ardanas/helper-cli.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Ardanas/helper-cli/issues"
+	},
 	"main": "dist/cli.js",
 	"module": "dist/cli.js",
 	"bin": {
 		"my-helper-cli": "bin/my-helper-cli.mjs"
 	},
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"dev": "tsup --watch --sourcemap",
 		"build": "tsup",
-		"typecheck": "tsc --noEmit",
+		"typecheck": "tsc",
 		"release": "release-it",
 		"test": "vitest"
 	},
 	"dependencies": {
 		"cac": "^6.7.14",
 		"chalk": "^4.1.2",
-		"degit": "^2.8.4",
-		"download-git-repo": "^3.0.2",
 		"execa": "^8.0.1",
 		"fs-extra": "^11.2.0",
 		"giget": "^1.2.3",
@@ -29,7 +39,6 @@
 	"devDependencies": {
 		"@antfu/eslint-config": "^2.16.0",
 		"@release-it/conventional-changelog": "^8.0.1",
-		"@types/degit": "^2.8.6",
 		"@types/fs-extra": "^11.0.4",
 		"@types/inquirer": "^9.0.7",
 		"@types/node": "^20.12.8",
