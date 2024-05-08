@@ -1,18 +1,18 @@
 [
-    {
-        "name": "ts-node-starter",
-        "value": "github:antfu/starter-ts"
-    },
-    {
-        "name": "koa-starter",
-        "value": "github:ddimaria/koa-typescript-starter"
-    },
-    {
-        "name": "vite-vue3-unocss-starter",
-        "value": "github:Ardanas/starter-vite"
-    },
-    {
-        "name": "nuxt3-starter",
-        "value": "github:viandwi24/nuxt3-awesome-starter"
-    }
+  {
+    "name": "ts-node-starter",
+    "value": "gh:antfu/starter-ts"
+  },
+  {
+    "name": "koa-starter",
+    "value": "gh:ddimaria/koa-typescript-starter"
+  },
+  {
+    "name": "vite-vue3-unocss-starter",
+    "value": "gh:Ardanas/starter-vite"
+  },
+  {
+    "name": "nuxt3-starter",
+    "value": "gh:viandwi24/nuxt3-awesome-starter"
+  }
 ]
