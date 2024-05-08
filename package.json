@@ -1,7 +1,7 @@
 {
   "name": "my-helper-cli",
   "type": "module",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A modern CLI tool that downloads any template.",
   "license": "MIT",
   "homepage": "https://github.com/Ardanas/helper-cli#readme",

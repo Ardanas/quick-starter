@@ -1,5 +1,36 @@
 
 
+## [0.2.0](https://github.com/Ardanas/helper-cli/compare/0.1.2...0.2.0) (2024-05-08)
+
+
+### 🎫 Chores
+
+* add lint and fix ([63cf123](https://github.com/Ardanas/helper-cli/commit/63cf123d24c47f4e8fcaad72900244f8c6f80cc0))
+* format ([ab5922e](https://github.com/Ardanas/helper-cli/commit/ab5922e51a845716081f20e1e7a3f56331e14e1b))
+* lint fix ([cb0b542](https://github.com/Ardanas/helper-cli/commit/cb0b5427658d7dc13adc180ddd4f9e449f053cb0))
+* update deps ([eca3660](https://github.com/Ardanas/helper-cli/commit/eca3660edf25a162bc015aa63108cbb3b1abb6cc))
+* update scripts ([d26f6fd](https://github.com/Ardanas/helper-cli/commit/d26f6fd412dd7e19e9eacaeadade09a2bd5731b1))
+
+
+### ♻ Code Refactoring
+
+* reset options ([6e73719](https://github.com/Ardanas/helper-cli/commit/6e73719d2dde046ec010f8c5e03362a18d5cb2eb))
+
+
+### ✅ Tests
+
+* update test cases ([3335e41](https://github.com/Ardanas/helper-cli/commit/3335e41880b0540d42426526953bc859c56db719))
+
+
+### 👷‍ Build System
+
+* update release config ([081b227](https://github.com/Ardanas/helper-cli/commit/081b227618adaf1f398e08ae9a09f28243b0bd99))
+
+
+### 🔧 Continuous Integration
+
+* add ci workflow ([0cfb07e](https://github.com/Ardanas/helper-cli/commit/0cfb07ef3a13cfb69e4a6f476aae7f936a8b9fe1))
+
 ## [0.1.2](https://github.com/Ardanas/helper-cli/compare/0.1.0...0.1.2) (2024-05-06)
 
 
