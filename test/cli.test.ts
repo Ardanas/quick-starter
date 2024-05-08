@@ -1,8 +1,8 @@
 import { join } from 'node:path'
 import type { CommonExecOptions, SpawnSyncReturns } from 'node:child_process'
 import { execSync } from 'node:child_process'
-import fs from 'fs-extra'
 import { afterEach, beforeAll, describe, expect, it } from 'vitest'
+import { createNonEmptyDir, emptyDir, isDirEmpty } from '../src/utils/file'
 
 const CLI_PATH = join(__dirname, '../bin', 'my-helper-cli.mjs')
 const genPath = join(__dirname, '../TEMPLATE')
@@ -16,19 +16,16 @@ function run(args: string[], options?: CommonExecOptions): string {
   }
 }
 
-function createNonEmptyDir() {
-  fs.mkdirpSync(genPath)
-
-  const pkgJson = join(genPath, 'package.json')
-  fs.writeFileSync(pkgJson, '{ "foo": "bar" }')
+function createGenPath() {
+  createNonEmptyDir(genPath)
 }
 
-function emptyDir() {
-  fs.remove(genPath)
+function emptyGenPath() {
+  emptyDir(genPath)
 }
 
-beforeAll(() => emptyDir())
-afterEach(() => emptyDir())
+beforeAll(() => emptyGenPath())
+afterEach(() => emptyGenPath())
 
 describe('templte', () => {
   it('prompts for the options if none supplied', () => {
@@ -36,26 +33,39 @@ describe('templte', () => {
     expect(result).toContain('Select a template type')
   })
 
-  it('--type', () => {
-    const result = run(['template', '--type'])
+  it('--name', () => {
+    const result = run(['template', '--name'])
     expect(result).toContain('Select a template type')
   })
 
   it('the target folder is not empty', () => {
-    createNonEmptyDir()
-    const result = run(['template', '--type', `--dir=${genPath}`], { input: '1\n' })
-    expect(result).toContain('the folder is not empty')
+    createGenPath()
+    const result = run(['template', '--name', `--dir=${genPath}`], { input: '1\n' })
+    expect(result).toContain('do you need to overwrite it？')
   })
 
   it('the target folder is empty', () => {
-    emptyDir()
-    const result = run(['template', '--type', `--dir=${genPath}`], { input: '1\n' })
+    emptyGenPath()
+    const result = run(['template', '--name', `--dir=${genPath}`], { input: '1\n' })
     expect(result).toContain('')
   })
 
-  it('-f --force', () => {
-    createNonEmptyDir()
-    const result = run(['template', '--type', `--dir=${genPath}`, '-f'], { input: '1\n' })
+  it('the target folder is not empty & dont force', () => {
+    createGenPath()
+    const result = run(['template', '--name', `--dir=${genPath}`, '-f=false'], { input: '1\n' })
+    expect(result).toContain('the folder is not empty')
+  })
+
+  it('-f, --force', () => {
+    createGenPath()
+    const result = run(['template', '--name', `--dir=${genPath}`, '--force'], { input: '1\n' })
     expect(result).toContain('')
+  })
+
+  it('-f, --force=false', () => {
+    createGenPath()
+    run(['template', '--name', `--dir=${genPath}`, '--force=false'], { input: '1\n' })
+    const isEmpty = isDirEmpty(genPath)
+    expect(isEmpty).toEqual(false)
   })
 })

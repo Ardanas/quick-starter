@@ -1,14 +1,11 @@
+import { basename } from 'node:path'
 import inquirer from 'inquirer'
-import chalk from 'chalk'
 import starterTemplates from '../../../starter-templates.json'
 
-export async function selectStarterTemplate(type?: string): Promise<string> {
-  if (type) {
-    const template = starterTemplates.find(item => item.value === type)
-    if (template)
-      return template.value
-    // eslint-disable-next-line no-console
-    console.log(chalk.redBright.bold('The template of this type cannot be found. Please select from the following options'))
+export async function selectStarterTemplate(name?: string): Promise<string> {
+  if (name && typeof name === 'string') {
+    const template = starterTemplates.find(item => item.value === name)
+    return template ? template.value : name
   }
   const { repo } = await inquirer.prompt([
     {
@@ -26,7 +23,7 @@ export async function isOverwriteDir(dir: string) {
     {
       type: 'confirm',
       name: 'overwrite',
-      message: `the folder is not empty, do you need to overwrite it？ [${dir}]`,
+      message: `the folder [${basename(dir)}] is not empty, do you need to overwrite it？`,
       default: false,
     },
   ])
