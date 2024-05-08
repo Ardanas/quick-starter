@@ -25,9 +25,10 @@
     "build": "tsup",
     "typecheck": "tsc",
     "release": "release-it",
-    "test": "vitest",
-	"lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "test": "npm run build && vitest",
+	  "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "cac": "^6.7.14",
