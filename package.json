@@ -2,6 +2,7 @@
   "name": "my-helper-cli",
   "type": "module",
   "version": "0.2.0",
+  "packageManager": "pnpm@9.0.6",
   "description": "A modern CLI tool that downloads any template.",
   "license": "MIT",
   "homepage": "https://github.com/Ardanas/helper-cli#readme",
