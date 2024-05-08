@@ -6,51 +6,51 @@
         "types": [
           {
             "type": "feat",
-            "section": "✨ Features | 新功能"
+            "section": "✨ Features"
           },
           {
             "type": "fix",
-            "section": "🐛 Bug Fixes | Bug 修复"
+            "section": "🐛 Bug Fixes"
           },
           {
             "type": "chore",
-            "section": "🎫 Chores | 其他更新"
+            "section": "🎫 Chores"
           },
           {
             "type": "docs",
-            "section": "📝 Documentation | 文档"
+            "section": "📝 Documentation"
           },
           {
             "type": "style",
-            "section": "💄 Styles | 风格"
+            "section": "💄 Styles"
           },
           {
             "type": "refactor",
-            "section": "♻ Code Refactoring | 代码重构"
+            "section": "♻ Code Refactoring"
           },
           {
             "type": "perf",
-            "section": "⚡ Performance Improvements | 性能优化"
+            "section": "⚡ Performance Improvements"
           },
           {
             "type": "test",
-            "section": "✅ Tests | 测试"
+            "section": "✅ Tests"
           },
           {
             "type": "revert",
-            "section": "⏪ Reverts | 回退"
+            "section": "⏪ Reverts"
           },
           {
             "type": "build",
-            "section": "👷‍ Build System | 构建"
+            "section": "👷‍ Build System"
           },
           {
             "type": "ci",
-            "section": "🔧 Continuous Integration | CI 配置"
+            "section": "🔧 Continuous Integration"
           },
           {
             "type": "config",
-            "section": "🔨 CONFIG | 配置"
+            "section": "🔨 CONFIG"
           }
         ]
       },
@@ -67,6 +67,8 @@
     "draft": false
   },
   "hooks": {
-    "after:bump": "npm run build"
+    "before:init": ["npm run lint", "npm run typecheck"],
+    "after:bump": "npm run build",
+    "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   }
 }
