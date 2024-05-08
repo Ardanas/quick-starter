@@ -26,7 +26,7 @@
     "typecheck": "tsc",
     "release": "release-it",
     "test": "npm run build && vitest",
-	  "lint": "eslint .",
+    "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepublishOnly": "npm run build"
   },
