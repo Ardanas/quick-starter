@@ -2,7 +2,7 @@
   "name": "quick-starter",
   "type": "module",
   "version": "0.2.0",
-  "packageManager": "pnpm@9.0.6",
+  "packageManager": "pnpm@9.1.0",
   "description": "A modern CLI tool to download templates.",
   "license": "MIT",
   "homepage": "https://github.com/Ardanas/quick-stater#readme",
@@ -40,11 +40,11 @@
     "ora": "^5.4.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.16.3",
+    "@antfu/eslint-config": "^2.17.0",
     "@release-it/conventional-changelog": "^8.0.1",
     "@types/fs-extra": "^11.0.4",
     "@types/inquirer": "^9.0.7",
-    "@types/node": "^20.12.10",
+    "@types/node": "^20.12.11",
     "eslint": "^9.2.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
