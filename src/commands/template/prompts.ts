@@ -2,10 +2,10 @@ import { basename } from 'node:path'
 import inquirer from 'inquirer'
 import starterTemplates from '../../../starter-templates.json'
 
-export async function selectStarterTemplate(name?: string): Promise<string> {
-  if (name && typeof name === 'string') {
-    const template = starterTemplates.find(item => item.value === name)
-    return template ? template.value : name
+export async function selectStarterTemplate(template?: string): Promise<string> {
+  if (template) {
+    const res = starterTemplates.find(item => item.name === template)
+    return res ? res.value : template
   }
   const { repo } = await inquirer.prompt([
     {

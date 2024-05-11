@@ -2,7 +2,7 @@ import ora from 'ora'
 import chalk from 'chalk'
 import type { DownloadTemplateOptions } from 'giget'
 import { downloadTemplate } from 'giget'
-import { emptyDir, ensureDir, isDirEmpty } from '../../utils'
+import { copyDir, emptyDir, ensureDir, isDirEmpty } from '../../utils'
 import { isOverwriteDir } from './prompts'
 
 export async function download(template: string, dir: string, force: boolean | undefined, options: DownloadTemplateOptions) {
@@ -26,12 +26,15 @@ export async function download(template: string, dir: string, force: boolean | u
   const spinner = ora('waiting download template')
   spinner.start()
   try {
-    await downloadTemplate(template, {
-      dir,
-      force,
-      forceClean: true,
-      ...options,
-    })
+    const isLocalPath = ['./', '../', '/'].some(_str => template.startsWith(_str))
+    isLocalPath
+      ? copyDir(template, dir)
+      : await downloadTemplate(template, {
+        dir,
+        force,
+        forceClean: true,
+        ...options,
+      })
     spinner.succeed('download template succeed.')
   }
   catch (err: any) {

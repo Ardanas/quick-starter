@@ -1,18 +1,22 @@
 [
   {
-    "name": "ts-node-starter",
+    "name": "ts",
     "value": "gh:antfu/starter-ts"
   },
   {
-    "name": "koa-starter",
+    "name": "koa",
     "value": "gh:ddimaria/koa-typescript-starter"
   },
   {
-    "name": "vite-vue3-unocss-starter",
-    "value": "gh:Ardanas/starter-vite"
+    "name": "vite-vue3",
+    "value": "gh:antfu-collective/vitesse"
   },
   {
-    "name": "nuxt3-starter",
+    "name": "nuxt3",
     "value": "gh:viandwi24/nuxt3-awesome-starter"
+  },
+  {
+    "name": "vscode",
+    "value": "gh:antfu/starter-vscode"
   }
 ]

@@ -32,3 +32,7 @@ export function createNonEmptyDir(dir: string) {
   const pkgJson = join(dir, 'package.json')
   fs.writeFileSync(pkgJson, '{ "foo": "bar" }')
 }
+
+export function copyDir(sourceDir: string, targetDir: string) {
+  fs.copySync(sourceDir, targetDir)
+}

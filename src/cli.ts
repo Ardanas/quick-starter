@@ -9,14 +9,12 @@ import { download, selectStarterTemplate } from './commands/template/index.ts'
 
 const cli = cac(name)
 
-cli.command('template', 'Create a new project from a template')
-  .option('--name [name]', 'Template name or a a URI describing provider, repository, subdir, and branch/ref')
-  .option('--dir [dir]', 'A relative or absolute path where to extract the template', { default: '.' })
+cli.command('[template] [dir]', 'Create a new project from a template')
   .option('-f, --force', 'Remove any existing directory or file recursively before cloning.')
-  .action(async (options) => {
-    const { dir, name, force, ...restOptions } = options
-    const _dir = typeof dir === 'string' ? resolve(dir) : cwd()
-    const _template = await selectStarterTemplate(name)
+  .action(async (template, dir, options) => {
+    const _dir = dir ? resolve(dir) : cwd()
+    const _template = await selectStarterTemplate(template)
+    const { force, ...restOptions } = options
     await download(_template, _dir, force, restOptions)
   })
 

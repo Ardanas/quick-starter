@@ -1,22 +1,22 @@
 {
-  "name": "my-helper-cli",
+  "name": "quick-starter",
   "type": "module",
   "version": "0.2.0",
   "packageManager": "pnpm@9.0.6",
-  "description": "A modern CLI tool that downloads any template.",
+  "description": "A modern CLI tool to download templates.",
   "license": "MIT",
-  "homepage": "https://github.com/Ardanas/helper-cli#readme",
+  "homepage": "https://github.com/Ardanas/quick-stater#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ardanas/helper-cli.git"
+    "url": "git+https://github.com/Ardanas/quick-stater.git"
   },
   "bugs": {
-    "url": "https://github.com/Ardanas/helper-cli/issues"
+    "url": "https://github.com/Ardanas/quick-stater/issues"
   },
   "main": "dist/cli.js",
   "module": "dist/cli.js",
   "bin": {
-    "my-helper-cli": "bin/my-helper-cli.mjs"
+    "quick-starter": "bin/quick-starter.mjs"
   },
   "files": [
     "dist"
