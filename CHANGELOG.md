@@ -1,5 +1,21 @@
 
 
+## [0.2.1](https://github.com/Ardanas/quick-stater/compare/0.2.0...0.2.1) (2024-05-11)
+
+
+### 🎫 Chores
+
+* add packageManager ([f809f96](https://github.com/Ardanas/quick-stater/commit/f809f9633a31cb52f105ad5a16ce8ee663141c4b))
+* add pre-commit hook ([b68149e](https://github.com/Ardanas/quick-stater/commit/b68149e1951ebc9839da45c86b557a3347b22d99))
+* remove lint ([ec23831](https://github.com/Ardanas/quick-stater/commit/ec23831de66bcf04e67095d42716f08bd58d4e1e))
+* update ci ([3ef35be](https://github.com/Ardanas/quick-stater/commit/3ef35becd8cf4be8b60b4e7bec581784089bc3c9))
+* update deps ([f36ecae](https://github.com/Ardanas/quick-stater/commit/f36ecaea784c7d1f853820c75b4b54033512894b))
+
+
+### 🔧 Continuous Integration
+
+* format ([d6f16a1](https://github.com/Ardanas/quick-stater/commit/d6f16a1c8a35af575df7d54be7bb25b440bf0434))
+
 ## [0.2.0](https://github.com/Ardanas/helper-cli/compare/0.1.2...0.2.0) (2024-05-08)
 
 
