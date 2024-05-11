@@ -1,29 +1,38 @@
-<h1>quick starter</h1>
-<pre align="center"><b>quick-starter</b></pre>
-
-<p align='center'>
-    <img src='./screenshots/help.png' />
-</p>
+<h1>⚡️ quick starter</h1>
+<pre align="center"><b>npx quick-starter</b></pre>
 
 ## Features
-- Download templates to your destination folder
 - Manage your templates via configuration files
-- More: https://www.npmjs.com/package/giget#Features
+- [More](https://www.npmjs.com/package/giget#Features)
 
-## Usage
+## Usage(CLI)
 ```shell
-quick-starter [name] [dir]
+quick-starter [<template>] [<dir>] [...options]
 ```
-#### The template is sourced from github/gitlab/bitbucket/sourcehut/https URL
-```shell
-quick-starter gh:antfu-collective/vitesse ./
-```
-> [More usage examples can be found in the link](https://www.npmjs.com/package/giget#Examples)
+Arguments
+- **template**:
+    - Template name or a URI describing provider, repository, sub dir, and branch/ref. (See [Examples](https://www.npmjs.com/package/giget#Examples))
+    - from your config
+- **dir**: A relative or absolute path where to extract the template. By default, it is the current directory.
 
-#### The template is sourced local path
+Options
+
+`--force`: Clone and overwrite an existing directory.
+
+[More options](https://www.npmjs.com/package/giget#Options)
+
+Examples
+
 ```shell
+# Clone starter from your starter config file
+quick-starter
+
+# Clone starter from local
 quick-starter ./localDir/localName ./
 ```
+[More Examples](https://www.npmjs.com/package/giget#Examples)
+
+## Starter Config
 
 ## Alternatives
 - [giget](https://github.com/unjs/giget)
@@ -31,4 +40,4 @@ quick-starter ./localDir/localName ./
 
 ## License
 
-MIT License © 2020 [Ardanas](https://github.com/Ardanas)
+MIT License © 2024 [Ardanas](https://github.com/Ardanas)
