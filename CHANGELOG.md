@@ -1,5 +1,42 @@
 
 
+## [0.3.0](https://github.com/Ardanas/quick-stater/compare/0.2.0...0.3.0) (2024-05-14)
+
+
+### ✨ Features
+
+* add dir option ([7bc1a25](https://github.com/Ardanas/quick-stater/commit/7bc1a258b5305272146669c641010db6b3860d84))
+
+
+### 🐛 Bug Fixes
+
+* dir option ([e862783](https://github.com/Ardanas/quick-stater/commit/e8627834d57d8b65b19af895a79b71d0ab8a19cc))
+
+
+### 🎫 Chores
+
+* add packageManager ([f809f96](https://github.com/Ardanas/quick-stater/commit/f809f9633a31cb52f105ad5a16ce8ee663141c4b))
+* add pre-commit hook ([b68149e](https://github.com/Ardanas/quick-stater/commit/b68149e1951ebc9839da45c86b557a3347b22d99))
+* Release v0.2.1 ([1bdb63e](https://github.com/Ardanas/quick-stater/commit/1bdb63e6acf1e7f848a622c2d74f4bb41da775e3))
+* remove lint ([ec23831](https://github.com/Ardanas/quick-stater/commit/ec23831de66bcf04e67095d42716f08bd58d4e1e))
+* update ci ([3ef35be](https://github.com/Ardanas/quick-stater/commit/3ef35becd8cf4be8b60b4e7bec581784089bc3c9))
+* update deps ([f36ecae](https://github.com/Ardanas/quick-stater/commit/f36ecaea784c7d1f853820c75b4b54033512894b))
+
+
+### 📝 Documentation
+
+* update readme ([82833b2](https://github.com/Ardanas/quick-stater/commit/82833b2d6b731889f48fe4d2b9cad142ca1d01b5))
+
+
+### ✅ Tests
+
+* rewrite test usage ([a113abf](https://github.com/Ardanas/quick-stater/commit/a113abf1e4e009711caaf3f00db4d4c7d11d2ca5))
+
+
+### 🔧 Continuous Integration
+
+* format ([d6f16a1](https://github.com/Ardanas/quick-stater/commit/d6f16a1c8a35af575df7d54be7bb25b440bf0434))
+
 ## [0.2.1](https://github.com/Ardanas/quick-stater/compare/0.2.0...0.2.1) (2024-05-11)
 
 
