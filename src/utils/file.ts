@@ -1,4 +1,3 @@
-import { join } from 'node:path'
 import fs from 'fs-extra'
 
 export function ensureDir(dir: string) {
@@ -24,10 +23,6 @@ export function removeDir(dir: string) {
 export function isDirEmpty(dir: string) {
   const files = fs.readdirSync(dir)
   return files.length === 0
-}
-
-export function createNonEmptyFile(dir: string, content: string) {
-  fs.writeFileSync(dir, content)
 }
 
 export function copyDir(sourceDir: string, targetDir: string) {

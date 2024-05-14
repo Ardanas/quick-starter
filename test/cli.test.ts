@@ -1,11 +1,14 @@
 import { join } from 'node:path'
 import type { CommonExecOptions, SpawnSyncReturns } from 'node:child_process'
 import { execSync } from 'node:child_process'
-import { afterEach, beforeAll, describe, expect, it } from 'vitest'
-import { createNonEmptyDir, emptyDir, isDirEmpty } from '../src/utils/file'
+import fs from 'fs-extra'
+import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
-const CLI_PATH = join(__dirname, '../bin', 'my-helper-cli.mjs')
-const genPath = join(__dirname, '../TEMPLATE')
+const CLI_PATH = join(__dirname, '../bin', 'quick-starter.mjs')
+const targetDirPath = join(__dirname, './_template')
+const localDirPath = join(__dirname, './_demo')
+const localFilePath = join(localDirPath, `_@_$_${Date.now()}_$_@_.txt`)
+const remoteTemplateName = 'gh:antfu/starter-ts'
 
 function run(args: string[], options?: CommonExecOptions): string {
   try {
@@ -16,56 +19,86 @@ function run(args: string[], options?: CommonExecOptions): string {
   }
 }
 
-function createGenPath() {
-  createNonEmptyDir(genPath)
+function createNonEmptyFile(filepath: string, content: string) {
+  fs.ensureFileSync(filepath)
+  fs.writeFileSync(filepath, content)
 }
 
-function emptyGenPath() {
-  emptyDir(genPath)
+function createTargetFile() {
+  const filepath = join(targetDirPath, 'test.txt')
+  createNonEmptyFile(filepath, 'whatever')
 }
 
-beforeAll(() => emptyGenPath())
-afterEach(() => emptyGenPath())
+function _beforeAll() {
+  createNonEmptyFile(localFilePath, 'whatever')
+}
 
-describe('templte', () => {
+function emptyTargetDir() {
+  fs.emptyDir(targetDirPath)
+}
+
+function _afterAll() {
+  fs.removeSync(targetDirPath)
+  fs.removeSync(localDirPath)
+}
+
+function isTargetDirEmpty() {
+  const files = fs.readdirSync(targetDirPath)
+  return files.length === 0
+}
+
+beforeAll(_beforeAll)
+
+describe('base', () => {
   it('prompts for the options if none supplied', () => {
-    const result = run(['template'])
-    expect(result).toContain('Select a template type')
-  })
-
-  it('--name', () => {
-    const result = run(['template', '--name'])
+    const result = run([])
     expect(result).toContain('Select a template type')
   })
 
   it('the target folder is not empty', () => {
-    createGenPath()
-    const result = run(['template', '--name', `--dir=${genPath}`], { input: '1\n' })
-    expect(result).toContain('do you need to overwrite it？')
+    createTargetFile()
+    const result = run([localFilePath, targetDirPath])
+    expect(result).toContain('do you need to overwrite it')
   })
 
-  it('the target folder is empty', () => {
-    emptyGenPath()
-    const result = run(['template', '--name', `--dir=${genPath}`], { input: '1\n' })
-    expect(result).toContain('')
-  })
-
-  it('the target folder is not empty & dont force', () => {
-    createGenPath()
-    const result = run(['template', '--name', `--dir=${genPath}`, '-f=false'], { input: '1\n' })
+  it('--force=false', () => {
+    createTargetFile()
+    const result = run([localFilePath, targetDirPath, '--force=false'])
     expect(result).toContain('the folder is not empty')
   })
+})
 
-  it('-f, --force', () => {
-    createGenPath()
-    const result = run(['template', '--name', `--dir=${genPath}`, '--force'], { input: '1\n' })
-    expect(result).toContain('')
+describe('download', () => {
+  afterAll(_afterAll)
+
+  it('default options', () => {
+    emptyTargetDir()
+    run([`--dir=${targetDirPath}`], { input: '1\n' })
+    expect(isTargetDirEmpty()).toEqual(false)
   })
 
-  it('-f, --force=false', () => {
-    createGenPath()
-    run(['template', '--name', `--dir=${genPath}`, '--force=false'], { input: '1\n' })
-    const isEmpty = isDirEmpty(genPath)
-    expect(isEmpty).toEqual(false)
+  it('--dir > [dir]', () => {
+    emptyTargetDir()
+    run([localDirPath, 'randomDir', `--dir=${targetDirPath}`])
+    expect(isTargetDirEmpty()).toEqual(false)
+  })
+
+  // it('--force', () => {
+  //   fs.ensureFile(targetDirPath)
+  //   fs.writeFile(join(targetDirPath, 'test.txt'), 'whatever')
+  //   run([localFilePath, targetDirPath, '--force'])
+  //   expect(isTargetDirEmpty()).toEqual(false)
+  // })
+
+  it('template from local dir', () => {
+    emptyTargetDir()
+    run([localDirPath, targetDirPath])
+    expect(isTargetDirEmpty()).toEqual(false)
+  })
+
+  it('template from git repo', () => {
+    emptyTargetDir()
+    run([remoteTemplateName, targetDirPath])
+    expect(isTargetDirEmpty()).toEqual(false)
   })
 })
