@@ -13,7 +13,8 @@ cli.command('[template] [dir]', 'Create a new project from a template')
   .option('--dir [dir]', 'A relative or absolute path where to extract the template')
   .option('-f, --force', 'Remove any existing directory or file recursively before cloning.')
   .action(async (template, dir, options) => {
-    const _dir = (options.dir || dir) ? resolve(dir) : cwd()
+    const targetDir = options.dir || dir
+    const _dir = targetDir ? resolve(targetDir) : cwd()
     const _template = await selectStarterTemplate(template)
     const { force, ...restOptions } = options
     await download(_template, _dir, force, restOptions)
