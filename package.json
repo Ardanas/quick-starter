@@ -5,13 +5,13 @@
   "packageManager": "pnpm@9.1.0",
   "description": "A modern CLI tool to download templates.",
   "license": "MIT",
-  "homepage": "https://github.com/Ardanas/quick-stater#readme",
+  "homepage": "https://github.com/Ardanas/quick-starter#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ardanas/quick-stater.git"
+    "url": "git+https://github.com/Ardanas/quick-starter.git"
   },
   "bugs": {
-    "url": "https://github.com/Ardanas/quick-stater/issues"
+    "url": "https://github.com/Ardanas/quick-starter/issues"
   },
   "main": "dist/cli.js",
   "module": "dist/cli.js",

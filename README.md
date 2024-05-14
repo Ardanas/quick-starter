@@ -1,5 +1,9 @@
 <h1>⚡️ quick starter</h1>
-<pre align="center"><b>npx quick-starter</b></pre>
+<pre align="center">npx <b>quick-starter</b></pre>
+
+<p align='center'>
+<img src='./screenshots/help.png' width='600'/>
+</p>
 
 ## Features
 - Manage your templates via configuration files
@@ -7,30 +11,50 @@
 
 ## Usage(CLI)
 ```shell
-quick-starter [<template>] [<dir>] [...options]
+quick-starter [template] [dir] [...options]
 ```
-Arguments
+### Arguments
 - **template**:
     - Template name or a URI describing provider, repository, sub dir, and branch/ref. (See [Examples](https://www.npmjs.com/package/giget#Examples))
     - from your config
 - **dir**: A relative or absolute path where to extract the template. By default, it is the current directory.
 
-Options
+### Options
+`--dir`: A relative or absolute path where to extract the template, with the highest priority.
 
 `--force`: Clone and overwrite an existing directory.
 
 [More options](https://www.npmjs.com/package/giget#Options)
 
-Examples
+### Examples
+
+1. Clone starter from your starter config file
 
 ```shell
-# Clone starter from your starter config file
-quick-starter
-
-# Clone starter from local
-quick-starter ./localDir/localName ./
+⚡  npx quick-starter
 ```
-[More Examples](https://www.npmjs.com/package/giget#Examples)
+<p align='center'>
+<img src='./screenshots/default.png' width='600'/>
+</p>
+
+> At present, the data in the dropdown list comes from a fixed configuration file, and in the future, users will be able to customize and select the starter configuration file
+
+<p align='center'>
+<img src='./screenshots/data.png' width='600'/>
+</p>
+
+2. Clone starter from local
+
+```shell
+npx quick-starter ./dir/filename ./
+```
+
+3. Clone starter from git repo
+```shell
+npx quick-starter gh:antfu/starter-ts ./
+```
+
+4. [More Examples](https://www.npmjs.com/package/giget#Examples)
 
 ## Starter Config
 
