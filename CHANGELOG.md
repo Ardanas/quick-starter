@@ -1,5 +1,12 @@
 
 
+## [0.3.1](https://github.com/Ardanas/quick-starter/compare/0.3.0...0.3.1) (2024-05-14)
+
+
+### 📝 Documentation
+
+* update readme ([f5ae275](https://github.com/Ardanas/quick-starter/commit/f5ae2758c952ef5a6572f07df3ab35da89b5c8e6))
+
 ## [0.3.0](https://github.com/Ardanas/quick-stater/compare/0.2.0...0.3.0) (2024-05-14)
 
 
