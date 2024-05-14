@@ -10,9 +10,10 @@ import { download, selectStarterTemplate } from './commands/template/index.ts'
 const cli = cac(name)
 
 cli.command('[template] [dir]', 'Create a new project from a template')
+  .option('--dir [dir]', 'A relative or absolute path where to extract the template')
   .option('-f, --force', 'Remove any existing directory or file recursively before cloning.')
   .action(async (template, dir, options) => {
-    const _dir = dir ? resolve(dir) : cwd()
+    const _dir = (options.dir || dir) ? resolve(dir) : cwd()
     const _template = await selectStarterTemplate(template)
     const { force, ...restOptions } = options
     await download(_template, _dir, force, restOptions)

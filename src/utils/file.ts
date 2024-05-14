@@ -26,11 +26,8 @@ export function isDirEmpty(dir: string) {
   return files.length === 0
 }
 
-export function createNonEmptyDir(dir: string) {
-  fs.mkdirpSync(dir)
-
-  const pkgJson = join(dir, 'package.json')
-  fs.writeFileSync(pkgJson, '{ "foo": "bar" }')
+export function createNonEmptyFile(dir: string, content: string) {
+  fs.writeFileSync(dir, content)
 }
 
 export function copyDir(sourceDir: string, targetDir: string) {
