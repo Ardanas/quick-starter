@@ -1,10 +1,12 @@
 import { basename } from 'node:path'
 import inquirer from 'inquirer'
 import starterTemplates from '../../../starter-templates.json'
+import { getStarterTemplateData } from '../../utils'
 
-export async function selectStarterTemplate(template?: string): Promise<string> {
+export async function selectStarterTemplate(template: string | undefined, configFile: string | undefined): Promise<string> {
+  const templateChoices = configFile ? getStarterTemplateData(configFile) : starterTemplates
   if (template) {
-    const res = starterTemplates.find(item => item.name === template)
+    const res = templateChoices.find(item => item.name === template)
     return res ? res.value : template
   }
   const { repo } = await inquirer.prompt([
@@ -12,7 +14,7 @@ export async function selectStarterTemplate(template?: string): Promise<string> 
       type: 'list',
       name: 'repo',
       message: 'Select a template type:',
-      choices: starterTemplates,
+      choices: templateChoices,
     },
   ])
   return repo

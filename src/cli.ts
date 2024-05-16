@@ -11,13 +11,21 @@ const cli = cac(name)
 
 cli.command('[template] [dir]', 'Create a new project from a template')
   .option('--dir [dir]', 'A relative or absolute path where to extract the template')
+  .option('-c, --config [filePath]', 'Your starter template configuration file path')
   .option('-f, --force', 'Remove any existing directory or file recursively before cloning.')
   .action(async (template, dir, options) => {
-    const targetDir = options.dir || dir
-    const _dir = targetDir ? resolve(targetDir) : cwd()
-    const _template = await selectStarterTemplate(template)
-    const { force, ...restOptions } = options
-    await download(_template, _dir, force, restOptions)
+    try {
+      const { dir: optionDir, force, config: configFile, ...restOptions } = options
+      const targetDir = optionDir || dir
+      const _dir = targetDir ? resolve(targetDir) : cwd()
+      const _template = await selectStarterTemplate(template, configFile)
+      await download(_template, _dir, force, restOptions)
+    }
+    catch (error: any) {
+      // eslint-disable-next-line no-console
+      console.log(chalk.redBright(`[error]: ${error.message}`))
+      exit(1)
+    }
   })
 
 cli.version(version)

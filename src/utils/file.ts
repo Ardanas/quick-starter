@@ -28,3 +28,11 @@ export function isDirEmpty(dir: string) {
 export function copyDir(sourceDir: string, targetDir: string) {
   fs.copySync(sourceDir, targetDir)
 }
+
+export function isFileExist(filePath: string) {
+  return fs.pathExistsSync(filePath)
+}
+
+export function readJson(filePath: string) {
+  return fs.readJsonSync(filePath, { encoding: 'utf-8' })
+}
