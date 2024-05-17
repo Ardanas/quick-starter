@@ -2,7 +2,7 @@ import ora from 'ora'
 import chalk from 'chalk'
 import type { DownloadTemplateOptions } from 'giget'
 import { downloadTemplate } from 'giget'
-import { copyDir, emptyDir, ensureDir, isDirEmpty } from '../../utils'
+import { copyDir, emptyDir, ensureDir, isDirEmpty } from '../utils'
 import { isOverwriteDir } from './prompts'
 
 export async function download(template: string, dir: string, force: boolean | undefined, options: DownloadTemplateOptions) {

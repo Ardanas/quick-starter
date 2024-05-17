@@ -36,3 +36,7 @@ export function isFileExist(filePath: string) {
 export function readJson(filePath: string) {
   return fs.readJsonSync(filePath, { encoding: 'utf-8' })
 }
+
+export function writeJson(filePath: string, content: any, options?: fs.JsonWriteOptions | undefined) {
+  return fs.writeJsonSync(filePath, content, options)
+}

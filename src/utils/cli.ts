@@ -1,5 +1,9 @@
+import { join } from 'node:path'
+import { cwd } from 'node:process'
 import type { IChoice } from '../types'
 import { isFileExist, readJson } from './file'
+
+export const defaultJsonPath = join(cwd(), 'default.json')
 
 export function getStarterTemplateData(filePath: string): IChoice[] {
   const isExist = isFileExist(filePath)
@@ -12,6 +16,10 @@ export function getStarterTemplateData(filePath: string): IChoice[] {
     .filter(item => item.name && item.value)
     .map(item => ({ name: item.name, value: item.value }))
   if (!jsonData.length)
-    throw new Error('The data cannot be empty, please ensure the correct data format')
+    throw new Error(`The data cannot be empty, please ensure the correct data format. \n eg: [{ name: 'ts', value: 'gh:antfu/starter-ts' }]`)
   return jsonData
+}
+
+export function readStarterTemplateData(): IChoice[] {
+  return readJson(defaultJsonPath)
 }
