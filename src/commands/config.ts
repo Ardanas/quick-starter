@@ -19,7 +19,7 @@ function handleSetOperation(filePath?: string) {
       return
 
     writeJson(defaultJsonPath, newData, { spaces: 2 })
-    log.success('sucessful')
+    log.success('successful')
     log.text(JSON.stringify(newData, null, 4))
   })
 }
@@ -27,7 +27,7 @@ function handleSetOperation(filePath?: string) {
 function handleEditOperation() {
   env.EDITOR = 'vi'
   execSync(`vi ${defaultJsonPath}`, { stdio: [0, 1, 2] })
-  log.success(`sucessful`)
+  log.success('successful')
 }
 
 function handleListOperation() {

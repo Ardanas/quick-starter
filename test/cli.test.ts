@@ -4,10 +4,15 @@ import { execSync } from 'node:child_process'
 import fs from 'fs-extra'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
+const defaultJsonPath = join(__dirname, '../default.json')
+const defaultJsonBakPath = join(__dirname, '../.default.bak')
+const notArrayJsonPath = join(__dirname, './notArray.json')
+const inCorrectJsonPath = join(__dirname, './inCorrect.json')
+const correctJsonPath = join(__dirname, './correct.json')
 const CLI_PATH = join(__dirname, '../bin', 'quick-starter.mjs')
 const targetDirPath = join(__dirname, './_template')
 const localDirPath = join(__dirname, './_demo')
-const localFilePath = join(localDirPath, `_@_$_${Date.now()}_$_@_.txt`)
+const localFilePath = join(localDirPath, 'default.json')
 const remoteTemplateName = 'gh:antfu/starter-ts'
 
 function run(args: string[], options?: CommonExecOptions): string {
@@ -17,6 +22,11 @@ function run(args: string[], options?: CommonExecOptions): string {
   catch (error) {
     return (error as SpawnSyncReturns<string>).stdout
   }
+}
+
+function restoreDefaultJson() {
+  const content = fs.readFileSync(defaultJsonBakPath, { encoding: 'utf-8' })
+  fs.writeFileSync(defaultJsonPath, content)
 }
 
 function createNonEmptyFile(filepath: string, content: string) {
@@ -30,7 +40,7 @@ function createTargetFile() {
 }
 
 function _beforeAll() {
-  createNonEmptyFile(localFilePath, 'whatever')
+  createNonEmptyFile(localFilePath, JSON.stringify([{ name: 'ts', value: remoteTemplateName }], null, 4))
 }
 
 function emptyTargetDir() {
@@ -48,6 +58,7 @@ function isTargetDirEmpty() {
 }
 
 beforeAll(_beforeAll)
+afterAll(_afterAll)
 
 describe('base', () => {
   it('prompts for the options if none supplied', () => {
@@ -69,8 +80,6 @@ describe('base', () => {
 })
 
 describe('download', () => {
-  afterAll(_afterAll)
-
   it('default options', () => {
     emptyTargetDir()
     run([`--dir=${targetDirPath}`], { input: '1\n' })
@@ -100,5 +109,39 @@ describe('download', () => {
     emptyTargetDir()
     run([remoteTemplateName, targetDirPath])
     expect(isTargetDirEmpty()).toEqual(false)
+  })
+})
+
+describe('config', () => {
+  it('set && file does not exist', () => {
+    const result = run(['config', 'set', `${Date.now()}.json`])
+    expect(result).toContain('file does not exist')
+  })
+
+  it('set && JSON data is not an array', () => {
+    const result = run(['config', 'set', notArrayJsonPath])
+    expect(result).toContain('JSON data is not an array')
+  })
+
+  it('set && incorrect data format', () => {
+    const result = run(['config', 'set', inCorrectJsonPath])
+    expect(result).toContain('please ensure the correct data format')
+  })
+
+  it('set && overwrite correct data', () => {
+    const result = run(['config', 'set', correctJsonPath])
+    expect(result).toContain('Do you want to overwrite the default configuration')
+  })
+
+  it('set && confirm correct data coverage', () => {
+    const result = run(['config', 'set', correctJsonPath], { input: 'y\n' })
+    expect(result).toContain('successful')
+    restoreDefaultJson()
+  })
+
+  it('list', () => {
+    const data = fs.readJsonSync(defaultJsonPath)
+    const result = run(['config', 'list'])
+    expect(data).toEqual(JSON.parse(result))
   })
 })
