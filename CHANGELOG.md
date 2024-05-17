@@ -1,5 +1,18 @@
 
 
+## [0.4.0](https://github.com/Ardanas/quick-starter/compare/0.3.1...0.4.0) (2024-05-17)
+
+
+### ✨ Features
+
+* add config command ([ab4318e](https://github.com/Ardanas/quick-starter/commit/ab4318e512b8d6b2d4f7b8904bf1e668da8b21a3))
+* add config option ([b2ba366](https://github.com/Ardanas/quick-starter/commit/b2ba36654c8b1b93a488311700ed33dcd8130a4f))
+
+
+### ✅ Tests
+
+* add configuration testing cases ([a64cf42](https://github.com/Ardanas/quick-starter/commit/a64cf428a8440d0513bbbc71b3668cab4dac5cee))
+
 ## [0.3.1](https://github.com/Ardanas/quick-starter/compare/0.3.0...0.3.1) (2024-05-14)
 
 
