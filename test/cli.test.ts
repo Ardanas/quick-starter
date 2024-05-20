@@ -63,7 +63,7 @@ afterAll(_afterAll)
 describe('base', () => {
   it('prompts for the options if none supplied', () => {
     const result = run([])
-    expect(result).toContain('Select a template type')
+    expect(result).toContain('Select a template')
   })
 
   it('the target folder is not empty', () => {
