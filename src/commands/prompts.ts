@@ -8,16 +8,16 @@ export async function selectStarterTemplate(template: string | undefined, config
     const res = templateChoices.find(item => item.name === template)
     return res ? res.value : template
   }
-  const { repo } = await inquirer.prompt([
+  const { name } = await inquirer.prompt([
     {
       type: 'list',
-      name: 'repo',
-      message: 'Select a template type:',
+      name: 'name',
+      message: 'Select a template:',
       choices: templateChoices,
       pageSize: 10,
     },
   ])
-  return repo
+  return name
 }
 
 export async function isOverwriteDir(dir: string) {

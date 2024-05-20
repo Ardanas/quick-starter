@@ -2,17 +2,23 @@
 <pre align="center">npx <b>quick-starter</b></pre>
 
 <p align='center'>
-<img src='./screenshots/help.png' width='600'/>
+<img src='./screenshots/default.png' width='600'/>
 </p>
 
 ## Features
-- Manage your templates via configuration files
-- [More](https://www.npmjs.com/package/giget#Features)
+- ✨ Manage your templates via configuration files
+- ✨ Support cloning templates from locally.
+- ✨ Support pulling templates from popular git providers.
+- ✨ [More](https://www.npmjs.com/package/giget#Features)
 
 ## Usage(CLI)
 ```shell
 quick-starter [template] [dir] [...options]
 ```
+<p align='center'>
+<img src='./screenshots/help.png' width='600'/>
+</p>
+
 ### Arguments
 - **template**:
     - Template name or a URI describing provider, repository, sub dir, and branch/ref. (See [Examples](https://www.npmjs.com/package/giget#Examples))
@@ -20,15 +26,17 @@ quick-starter [template] [dir] [...options]
 - **dir**: A relative or absolute path where to extract the template. By default, it is the current directory.
 
 ### Options
-`--dir`: A relative or absolute path where to extract the template, with the highest priority.
+`-d, --dir`: A relative or absolute path where to extract the template, with the highest priority.
 
-`--force`: Clone and overwrite an existing directory.
+`-c, --config`: Temporarily configure your template file, but do not modify the default configuration file.
+
+`-f, --force`: Clone and overwrite an existing directory.
 
 [More options](https://www.npmjs.com/package/giget#Options)
 
 ### Examples
 
-1. Clone starter from your starter config file
+#### 1. Clone the template from your template configuration file
 
 ```shell
 ⚡  npx quick-starter
@@ -37,26 +45,41 @@ quick-starter [template] [dir] [...options]
 <img src='./screenshots/default.png' width='600'/>
 </p>
 
-> At present, the data in the dropdown list comes from a fixed configuration file, and in the future, users will be able to customize and select the starter configuration file
+> If you haven't set up your template configuration file yet, we provide a default template configuration
 
 <p align='center'>
 <img src='./screenshots/data.png' width='600'/>
 </p>
 
-2. Clone starter from local
+#### 2. Clone the template locally to the specified location
 
 ```shell
 npx quick-starter ./dir/filename ./
 ```
 
-3. Clone starter from git repo
+#### 3. Clone the template remotely to the specified location
 ```shell
 npx quick-starter gh:antfu/starter-ts ./
 ```
 
-4. [More Examples](https://www.npmjs.com/package/giget#Examples)
+#### 4. [More Examples](https://www.npmjs.com/package/giget#Examples)
 
-## Starter Config
+## Manage your templates
+#### 1. Overwrite default template configuration
+```shell
+quick-starter config set ../filePath
+```
+
+#### 2. Edit template configuration
+```shell
+quick-starter config edit
+```
+> After executing the command, it will enter vi editing mode
+
+#### 3. View the current template configuration
+```shell
+quick-starter config list
+```
 
 ## Alternatives
 - [giget](https://github.com/unjs/giget)

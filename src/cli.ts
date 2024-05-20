@@ -9,13 +9,13 @@ import { log } from './utils/log'
 
 const cli = cac(name)
 
-cli.command('config <action> [value]', 'config file')
+cli.command('config <action> [value]', 'Manage your template configuration file')
   .action((action, value) => {
     handleConfig(action, value)
   })
 
 cli.command('[template] [dir]', 'Create a new project from a template')
-  .option('--dir [dir]', 'A relative or absolute path where to extract the template')
+  .option('-d, --dir [dir]', 'A relative or absolute path where to extract the template')
   .option('-c, --config [filePath]', 'Your starter template configuration file path')
   .option('-f, --force', 'Remove any existing directory or file recursively before cloning.')
   .action(async (template, dir, options) => {
