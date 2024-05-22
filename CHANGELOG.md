@@ -1,5 +1,12 @@
 
 
+## [1.0.1](https://github.com/Ardanas/quick-starter/compare/1.0.0...1.0.1) (2024-05-22)
+
+
+### 🐛 Bug Fixes
+
+* default.json file path issue ([70a8cdf](https://github.com/Ardanas/quick-starter/commit/70a8cdfb9f7c5eeee724cae2c2fcb321579926e0))
+
 ## [1.0.0](https://github.com/Ardanas/quick-starter/compare/0.4.0...1.0.0) (2024-05-20)
 
 
