@@ -67,18 +67,18 @@ npx quick-starter gh:antfu/starter-ts ./
 ## Manage your templates
 #### 1. Overwrite default template configuration
 ```shell
-quick-starter config set ../filePath
+npx quick-starter config set ../filePath
 ```
 
 #### 2. Edit template configuration
 ```shell
-quick-starter config edit
+npx quick-starter config edit
 ```
 > After executing the command, it will enter vi editing mode
 
 #### 3. View the current template configuration
 ```shell
-quick-starter config list
+npx quick-starter config list
 ```
 
 ## Alternatives
