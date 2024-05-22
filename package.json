@@ -19,6 +19,7 @@
     "quick-starter": "bin/quick-starter.mjs"
   },
   "files": [
+    "default.json",
     "dist"
   ],
   "scripts": {
