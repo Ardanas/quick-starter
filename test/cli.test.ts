@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const defaultJsonPath = join(__dirname, '../default.json')
-const defaultJsonBakPath = join(__dirname, '../.default.bak')
+const defaultJsonBakPath = join(__dirname, './.default.bak')
 const notArrayJsonPath = join(__dirname, './notArray.json')
 const inCorrectJsonPath = join(__dirname, './inCorrect.json')
 const correctJsonPath = join(__dirname, './correct.json')
