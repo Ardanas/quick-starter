@@ -1,5 +1,22 @@
 
 
+## [1.0.2](https://github.com/Ardanas/quick-starter/compare/1.0.1...1.0.2) (2024-05-22)
+
+
+### 🎫 Chores
+
+* update files ([5197152](https://github.com/Ardanas/quick-starter/commit/5197152a82bd730c93659f904303590e6c23d0e7))
+
+
+### 📝 Documentation
+
+* update README.md ([d72c9a8](https://github.com/Ardanas/quick-starter/commit/d72c9a826f50608316e65e820b2b1c2e1e18cd1e))
+
+
+### ✅ Tests
+
+* update file path ([f3fcbe9](https://github.com/Ardanas/quick-starter/commit/f3fcbe9ad858671a52dee4ca146295cd7205eeb2))
+
 ## [1.0.1](https://github.com/Ardanas/quick-starter/compare/1.0.0...1.0.1) (2024-05-22)
 
 
