@@ -1,9 +1,12 @@
-import { join } from 'node:path'
-import { cwd } from 'node:process'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import type { IChoice } from '../types'
 import { isFileExist, readJson } from './file'
 
-export const defaultJsonPath = join(cwd(), 'default.json')
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+export const defaultJsonPath = join(__dirname, '../default.json')
 
 export function getStarterTemplateData(filePath: string): IChoice[] {
   const isExist = isFileExist(filePath)

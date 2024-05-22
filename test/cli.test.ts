@@ -1,8 +1,12 @@
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import type { CommonExecOptions, SpawnSyncReturns } from 'node:child_process'
 import { execSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
 import fs from 'fs-extra'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const defaultJsonPath = join(__dirname, '../default.json')
 const defaultJsonBakPath = join(__dirname, '../.default.bak')
